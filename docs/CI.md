@@ -28,8 +28,8 @@ not publish releases.
 
 ## What CI does not prove
 
-Nothing here runs the firmware. There is no SITL test of the EMM driver and no
-hardware test, and compile success says nothing about the I2C register map.
+Nothing here runs the firmware. There is no SITL test and no
+hardware test.
 
 ## Suggested branch protection
 
