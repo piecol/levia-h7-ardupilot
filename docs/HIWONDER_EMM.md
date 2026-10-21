@@ -43,3 +43,12 @@ For a skid-steer Rover, set `SERVO1`/`SERVO2` to throttleLeft and
 Wheels off the ground. Confirm the disarmed output is stopped, that each motor
 follows the right servo channel and direction, and that motors stop when the
 autopilot is reset or the I2C cable is pulled.
+
+## Wheel odometry to EKF3
+
+Patch 0005 adds `WENC_TYPE 11`. WENC instance 1 reads EMM encoder 1 and WENC2 reads
+encoder 2. The EMM encoders are read at 50 Hz. Load `ardupilot/params/sowbot-ekf3.parm`
+after measuring CPR, wheel radius and track half-width.
+
+Known gap: if the EMM stops answering mid-run, Rover keeps feeding EKF3 zero wheel
+rotation, which reads as a stopped wheel. Not covered by the pre-arm check.
